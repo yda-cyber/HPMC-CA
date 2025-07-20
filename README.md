@@ -24,7 +24,7 @@ No non-standard hardware required
 
 ## Installation Guide
 
-### 0. Create a Conda or Mamba Environment
+### 1. Create a Conda or Mamba Environment
 
 We recommend creating a fresh environment using mamba or conda to manage dependencies cleanly.
 
