@@ -77,6 +77,8 @@ GIFs showing the symmetry transition process.
 **Typical Runtime:**  
 ~3–4 hours depending on CPU.
 
+![Symmetry Transition](Movie%20S1%20In-1Start.gif)
+
 ---
 
 ## License
