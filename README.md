@@ -1,84 +1,92 @@
 # HPMC-CA
 
-README
+## System Requirements
 
-System Requirements:
-  Operating System:
+**Operating System:**  
+Linux
 
-    Linux
+**Software Dependencies:**
+- Python ≥ 3.9
+- Jupyter Notebook
 
-  Software Dependencies:
+**Python Packages:**
+- hoomd-blue == 5.0.0  
+- fresnel == 0.13.5  
+- imageio == 2.36.1  
+- numpy ≥ 1.26.4  
+- matplotlib ≥ 3.9.2  
+- ipykernel == 6.29.5  
 
-    Python ≥ 3.9
-    Jupyter Notebook
+**Hardware Requirements:**  
+No non-standard hardware required
 
-  Python Packages:
-    hoomd-blue == 5.0.0
-    fresnel == 0.13.5
-    imageio == 2.36.1
-    numpy ≥ 1.26.4
-    matplotlib ≥ 3.9.2
-    ipykernel == 6.29.5
+---
 
-  Hardware Requirements:
-    No non-standard hardware required
+## Installation Guide
 
-Installation Guide
-  0. Create a Conda or Mamba Environment
-    We recommend creating a fresh environment using mamba or conda to manage dependencies cleanly.
-      mamba create -n hoomd-env python=3.11
-      mamba activate hoomd-env
+### 0. Create a Conda or Mamba Environment
 
-  1. Install HOOMD-blue from Source
-    Due to the need for modification and recompilation, install HOOMD-blue from source:
-      GitHub: https://github.com/glotzerlab/hoomd-blue
+We recommend creating a fresh environment using mamba or conda to manage dependencies cleanly.
 
-    Installation instructions for HOOMD-blue: 
-      HOOMD-blue Documentation: https://hoomd-blue.readthedocs.io/en/v5.0.0/
+    mamba create -n hoomd-env python=3.11
+    mamba activate hoomd-env
 
-  2. Modify and Recompile HOOMD-blue
-    Add the following files into the HOOMD-blue source tree before compilation:
-      ExternalFieldTypeHarmonic.h → {HOOMD_SRC}/hoomd/include/hoomd/hpmc/
-      typeharmonic.py → {HOOMD_SRC}/hoomd/hpmc/external/
-    Then recompile HOOMD-blue as instructed in the documentation.
+### 2. Install HOOMD-blue from Source
 
-  3. Install Remaining Packages
-    Install the rest of the Python packages using mamba or pip:
-      mamba install fresnel=0.13.5 imageio=2.36.1 numpy=1.26.4 matplotlib=3.9.2 ipykernel=6.29.5
+Due to the need for modification and recompilation, install HOOMD-blue from source:
 
-  4. Register Kernel and Launch Jupyter
-    Prior to run in Jupter the mamba environment need to be registered.
-      python -m ipykernel install --user --name hoomd-env --display-name "Python (hoomd-env)"
-      jupyter notebook
+GitHub: https://github.com/glotzerlab/hoomd-blue  
+Documentation: https://hoomd-blue.readthedocs.io/en/v5.0.0/
 
-  5. Execute
-    Open the provided notebook and execute all cells sequentially.
+### 3. Modify and Recompile HOOMD-blue
 
+Add the following files into the HOOMD-blue source tree before compilation:
 
-Demo
-  Instruction:
-    A demo notebook is included and contains parameter explanations and usage instructions.
+    ExternalFieldTypeHarmonic.h → {HOOMD_SRC}/hoomd/include/hoomd/hpmc/
+    typeharmonic.py → {HOOMD_SRC}/hoomd/hpmc/external/
 
-  Expected Output:
-    GIFs showing the symmetry transition process;
+Then compile HOOMD-blue following its official instructions.
 
-  Typical Runtime:
-    ~3–4 hours, depending on CPU used. 
+### 4. Install Remaining Packages
 
+Install the remaining Python packages using mamba or pip:
 
-License
-  This project is licensed under the MIT License.
-  You are free to use, modify, and distribute this code with proper attribution.
+    mamba install fresnel=0.13.5 imageio=2.36.1 numpy=1.26.4 matplotlib=3.9.2 ipykernel=6.29.5
 
-  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-  TORT OR OTHERWISE, ARISING FROM, 
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### 5. Register Kernel and Launch Jupyter
 
+Register the environment for use in Jupyter:
 
-Additional Information
-  For further methodological details and reproducibility instructions, 
-  please see the supplementary information for METHODS section.
+    python -m ipykernel install --user --name hoomd-env --display-name "Python (hoomd-env)"
+    jupyter notebook
+
+### 6. Execute
+
+Open the provided notebook and execute all cells sequentially.
+
+---
+
+## Demo
+
+**Instruction:**  
+A demo notebook is included and contains parameter explanations and usage instructions.
+
+**Expected Output:**  
+GIFs showing the symmetry transition process.
+
+**Typical Runtime:**  
+~3–4 hours depending on CPU.
+
+---
+
+## License
+
+This project is licensed under the MIT License.  
+You are free to use, modify, and distribute this code with proper attribution.
+
+---
+
+## Additional Information
+
+For further methodological details and reproducibility instructions,  
+please see the supplementary information for the METHODS section.
