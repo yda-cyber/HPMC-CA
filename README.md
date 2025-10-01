@@ -47,24 +47,40 @@ Add the following files into the HOOMD-blue source tree before compilation:
 
 Depending on version of HOOMD-Blue, locations may vary. But you will find harmonic.py/ Harmonic.h in these folders.
 
-You will also need to add those files into CMakeList.txt corrspondingly. In addition, add "TypeHarmonic" into hoomd.hpmc.external.__init__ to allow import.
+
+### 4. Register New Files
+
+In `module.cc`:
+```cpp
+#include "ExternalFieldTypeHarmonic.h"
+export_ExternalFieldTypeHarmonic(m);
+```
+
+In `hoomd/hpmc/external/__init__.py`:
+```py
+__all__ = [
+    ...
+    "TypeHarmonic",
+]
+```
+In addition, you will need to add those files into `CMakeList.txt` corrspondingly. 
 
 Then compile HOOMD-blue following its official instructions.
 
-### 4. Install Remaining Packages
+### 5. Install Remaining Packages
 
 Install the remaining Python packages using mamba or pip:
 
     mamba install fresnel=0.13.5 imageio=2.36.1 numpy=1.26.4 matplotlib=3.9.2 ipykernel=6.29.5
 
-### 5. Register Kernel and Launch Jupyter
+### 6. Register Kernel and Launch Jupyter
 
 Register the environment for use in Jupyter:
 
     python -m ipykernel install --user --name hoomd-env --display-name "Python (hoomd-env)"
     jupyter notebook
 
-### 6. Execute
+### 7. Execute
 
 Open the provided notebook and execute all cells sequentially.
 
