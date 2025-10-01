@@ -45,6 +45,10 @@ Add the following files into the HOOMD-blue source tree before compilation:
     ExternalFieldTypeHarmonic.h → {HOOMD_SRC}/hoomd/include/hoomd/hpmc/
     typeharmonic.py → {HOOMD_SRC}/hoomd/hpmc/external/
 
+Depending on version of HOOMD-Blue, locations may vary. But you will find harmonic.py/ Harmonic.h in these folders.
+
+You will also need to add those files into CMakeList.txt corrspondingly. In addition, add "TypeHarmonic" into hoomd.hpmc.external.__init__ to allow import.
+
 Then compile HOOMD-blue following its official instructions.
 
 ### 4. Install Remaining Packages
